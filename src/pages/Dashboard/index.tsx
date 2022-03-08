@@ -6,21 +6,13 @@ import Food from '../../components/Food';
 import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
-
-interface IFood {
-  available: boolean;
-  description: string;
-  id: number;
-  image: string;
-  name: string;
-  price: string
-}
+import { IFood } from '../../types/food';
 
 const Dashboard = () => {
   const [foods, setFoods] = useState<IFood[]>([]);
-  const [editingFood, setEditingFood] = useState<any>({});
-  const [modalOpen, setModalOpen] = useState(false);
-  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [editingFood, setEditingFood] = useState<IFood>();
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     loadFoods()
@@ -45,8 +37,9 @@ const Dashboard = () => {
   };
 
   const handleUpdateFood = async (food: IFood) => {
+    console.log('editingFood :', editingFood)
     try {
-      const foodUpdated = await api.put(`/foods/${editingFood.id}`, {
+      const foodUpdated = await api.put(`/foods/${editingFood?.id}`, {
         ...editingFood,
         ...food,
       });

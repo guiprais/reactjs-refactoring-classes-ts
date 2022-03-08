@@ -2,11 +2,19 @@
   "foods": [
     {
       "id": 2,
-      "name": "Veggie 22",
+      "name": "Veggie",
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
       "price": "21.90",
       "available": true,
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png"
+    },
+    {
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "name": "",
+      "price": "26,90",
+      "description": "ervilha e ervas finas colhidas no himalaia.",
+      "available": true,
+      "id": 3
     }
   ]
 }
